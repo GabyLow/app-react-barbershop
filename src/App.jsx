@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import BranchOnePage from "./pages/BranchOnePage";
@@ -8,7 +9,7 @@ import AppointsInfoPage from "./pages/AppointsInfoPage";
 function App() {
 
   return (
-    <div className="bg-gradient-to-r from-cyan-500 to-blue-500 min-h-screen">
+    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url("./public/bgrnd.png")' }}>
       <>
         <BrowserRouter>
           <Routes>
