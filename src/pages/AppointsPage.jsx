@@ -1,15 +1,16 @@
+// AppointsInfoPage.jsx
 import { Navbar } from "../components/NavBar";
-import HomeCard from "../components/HomeCard";
 
-const HomePage = () => {
+
+const AppointsPage = () => {
   return (
     <>
       < Navbar />
       <div className="container mx-auto mt-8">
-        <HomeCard />
+        
       </div>
     </>
   );
 };
 
-export default HomePage;
+export default AppointsPage;

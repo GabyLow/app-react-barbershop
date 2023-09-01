@@ -1,15 +1,16 @@
-import { Navbar } from "../components/NavBar";
-import HomeCard from "../components/HomeCard";
+// BranchTwoPage.jsx
 
-const HomePage = () => {
+import { Navbar } from "../components/NavBar";
+
+const AboutUsPage = () => {
   return (
     <>
-      < Navbar />
+    < Navbar />
       <div className="container mx-auto mt-8">
-        <HomeCard />
+        
       </div>
     </>
   );
 };
 
-export default HomePage;
+export default AboutUsPage;

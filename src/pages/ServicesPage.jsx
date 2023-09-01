@@ -1,15 +1,17 @@
+// BranchOnePage.jsx
+/*import React from 'react';*/
 import { Navbar } from "../components/NavBar";
-import HomeCard from "../components/HomeCard";
 
-const HomePage = () => {
+
+const ServicesPage = () => {
   return (
     <>
       < Navbar />
       <div className="container mx-auto mt-8">
-        <HomeCard />
+        
       </div>
     </>
   );
 };
 
-export default HomePage;
+export default ServicesPage;
