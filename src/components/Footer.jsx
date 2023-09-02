@@ -5,8 +5,8 @@ const Footer = () => {
 
   const containerStyle = {
     display: "flex",
-    alignItems: "center", // Centra verticalmente los elementos
-    justifyContent: "center", // Centra horizontalmente los elementos
+    alignItems: "center", 
+    justifyContent: "center",
   };
 
   return (

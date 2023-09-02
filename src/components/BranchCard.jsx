@@ -28,7 +28,7 @@ const BranchCard = ({ imagenSrc, direccion, horarios, telefono, mapaSrc }) => {
 };
 
 BranchCard.propTypes = {
-    imagenSrc: PropTypes.string.isRequired, // Asegura que imagenSrc sea una cadena (string) y es requerido
+    imagenSrc: PropTypes.string.isRequired,
     direccion: PropTypes.string.isRequired,
     horarios: PropTypes.string.isRequired,
     telefono: PropTypes.string.isRequired,
