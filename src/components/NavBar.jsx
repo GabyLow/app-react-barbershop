@@ -42,11 +42,11 @@ export const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/AboutUsPage"
+              to="/BranchPage"
               className="text-3xl font-bold text-orange-200 hover:text-gray-400 px-4 py-2"
             >
               {" "}
-              ¿Quiénes somos?{" "}
+              Sucursales{" "}
             </Link>
           </li>
           <li>
