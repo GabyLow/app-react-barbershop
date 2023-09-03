@@ -16,10 +16,11 @@ export const Navbar = () => {
       <div className="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8 md:px-20 py-2">
         <div className="flex items-center mb-2 sm:mb-0">
           <img src={logo} alt="Logo" style={{ width: logoWidth }} />
-          <p className="text-3xl sm:text-4xl md:text-5xl text-orange-200 ml-0 sm:ml-20 font-abc">
-            ¡Una Experiencia con estilo!
-          </p>
         </div>
+
+        <p className="text-3xl sm:text-4xl md:text-5xl text-orange-200 ml-0 sm:ml-20 font-abc mb-4 sm:mb-0">
+          ¡Una Experiencia con estilo!
+        </p>
 
         <button
           className={`sm:hidden text-3xl font-bold text-orange-200 hover:text-gray-400 px-4 py-2 ${
@@ -72,4 +73,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
 
