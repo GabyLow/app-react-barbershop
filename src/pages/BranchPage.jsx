@@ -7,20 +7,20 @@ function BranchPage() {
       <div className="flex flex-wrap justify-center">
         <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 p-4">
           <BranchCard
-            imagenSrc="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
+            imagenSrc="/public/Barber-branch-1.png"
             direccion="Boulevard del Hipodromo #1204, Col. San Benito, San Salvador, El salvador."
             horarios="Lunes a Sabado de 08:00 a.m. a 06:00 p.m., sin cerrar al mediodía."
             telefono="(503) 2522-9999"
-            mapaSrc="URL_MAPA_SUCURSAL_1"
+            mapaSrc="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1370.5260112017909!2d-89.2427610597222!3d13.692208318648888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ssv!4v1693698166736!5m2!1ses!2ssv"
           />
         </div>
         <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 p-4">
           <BranchCard
-            imagenSrc="https://media.quincemil.com/imagenes/2022/05/28012746/Peluqueria_M%C3%A1gica-8-1706x960.jpg"
-            direccion="Boulevard Santa Elena #2521, Urb. Santa Elena, Antiguo Cuscatlan, La Libertad, El Salvador."
+            imagenSrc="/public/Barber-branch-2.png"
+            direccion="Boulevard Santa Elena Local #12, Plaza Madero, Antiguo Cuscatlan, La Libertad, El Salvador."
             horarios="Lunes a Sabado de 08:00 a.m. a 06:00 p.m., sin cerrar al mediodía."
             telefono="(503) 2522-5055"
-            mapaSrc="URL_MAPA_SUCURSAL_2"
+            mapaSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.7966678628754!2d-89.2584524236828!3d13.670124499176863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f632e2ff96c6d57%3A0x67c415e6189cebbd!2sPlaza%20Madero!5e0!3m2!1ses!2ssv!4v1693698296817!5m2!1ses!2ssv" 
           />
         </div>
       </div>
