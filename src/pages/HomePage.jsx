@@ -24,21 +24,21 @@ const HomePage = () => {
         >
           <div>
             <img
-              src="/public/Banner 1.png"
+              src="/Banner 1.png"
               alt="Imagen 1"
               style={imageStyle}
             />
           </div>
           <div>
             <img
-              src="/public/Banner 2.png"
+              src="/Banner 2.png"
               alt="Imagen 2"
               style={imageStyle}
             />
           </div>
           <div>
             <img
-              src="/public/Banner 3.png"
+              src="/Banner 3.png"
               alt="Imagen 3"
               style={imageStyle}
             />
