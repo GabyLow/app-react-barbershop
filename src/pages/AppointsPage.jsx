@@ -1,12 +1,14 @@
 
+import AppointsCard from '../components/AppointsCard';
+
 const AppointsPage = () => {
   return (
-    <>
-      <div className="container mx-auto mt-8">
-        
-      </div>
-    </>
+    <div>
+      {/* Otros elementos de la página */}
+      <AppointsCard />
+    </div>
   );
 };
 
 export default AppointsPage;
+

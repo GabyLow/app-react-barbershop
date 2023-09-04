@@ -30,7 +30,7 @@ function ServiceList() {
     {
       title: 'Tratamiento de Cabello',
       description: 'Nutrición para cabello saludable.',
-      price: '$10',
+      price: '$20',
     },
   
   ];
