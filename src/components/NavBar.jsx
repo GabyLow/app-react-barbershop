@@ -13,7 +13,7 @@ export const Navbar = () => {
 
   return (
     <nav className="bg-zinc-950/90">
-      <div className="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8 md:px-20 py-2">
+      <div className="flex flex-col sm:flex-row justify-between font-mate-sc items-center px-4 sm:px-8 md:px-20 py-2">
         <div className="flex items-center mb-2 sm:mb-0">
           <img src={logo} alt="Logo" style={{ width: logoWidth }} />
         </div>

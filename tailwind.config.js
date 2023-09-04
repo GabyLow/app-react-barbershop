@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      abc:["Dancing Script", "cursive"],
+      abc:["Dancing Script", "Courgette"],
     },
   },
   plugins: [],

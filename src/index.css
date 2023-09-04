@@ -1,5 +1,9 @@
-@import 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Mate+SC&display=swap';
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'tailwindcss/tailwind.css';
+
+.font-mate-sc {
+    font-family: 'Mate SC', sans-serif;
+  }
