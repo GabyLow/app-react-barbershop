@@ -5,23 +5,24 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+const apiUrl = "http://localhost:8000/api/barberdb";
+
 const AppointsCard = () => {
-  // Inicialización del formulario y manejo de errores
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  // Navegación de la página
+ 
   const navigate = useNavigate();
 
-  // Estado para almacenar la hora seleccionada
+  
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
 
 
-  // Horario de la sucursal (de 8:00am a 18:00pm en intervalos de 60 minutos)
   const availableTimes = [
     "08:00 AM",
     "09:00 AM",
@@ -35,27 +36,27 @@ const AppointsCard = () => {
     "05:00 PM",
   ];
 
-  // Horario disponible del barbero (deberías obtener esto de tu API)
+
   const barberAvailability = [
     { date: "2023-09-10", times: ["09:00 AM", "10:00 AM", "11:00 AM"] },
     { date: "2023-09-11", times: ["08:00 AM", "12:00 PM", "01:00 PM"] },
-    // Agrega más fechas disponibles según tus necesidades
+ 
   ];
 
-  // Maneja el cambio en la selección de hora
+
   const handleTimeChange = (e) => {
     setSelectedTime(e.target.value);
   };
 
-  // Maneja el cambio en la selección de fecha
+
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
 
-  // Maneja el envío del formulario
+
   const onSubmit = async (data) => {
     try {
-      // Verifica si la fecha y hora seleccionadas están disponibles para el barbero
+     
       const selectedDateTime = selectedDate
         ? selectedDate.toISOString().split("T")[0] + " " + selectedTime
         : null;
@@ -72,8 +73,8 @@ const AppointsCard = () => {
         return;
       }
 
-      // Hace una solicitud a la API con los datos del formulario
-      const response = await fetch("http://localhost:8000/api/*DB*", {
+
+      const response = await fetch("http://localhost:8000/api/barberdb", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -81,20 +82,25 @@ const AppointsCard = () => {
         body: JSON.stringify(data),
       });
 
-      // Obtener la respuesta de la API (podemos modificar esto según necesidades)
-      const db_name = await response.json();
-      console.log(db_name);
+     
+      const barberdb = await response.json();
+      console.log(barberdb);
 
-      // Navegar a una página de confirmación o a donde desee
-      navigate("/db_name");
+      navigate("/barberdb");
     } catch (error) {
       console.log("THIS IS AN ERROR IF API DOES NOT WORK", error);
     }
   };
 
   useEffect(() => {
-    // Podemos cargar la disponibilidad del barbero desde la API aquí
-    // Se Actualiza el estado "barberAvailability" con los datos recibidos
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setBarberAvailability(data);
+      })
+      .catch((error) => {
+        console.error("Error al obtener la disponibilidad del barbero:", error);
+      });
   }, []);
 
   return (
@@ -110,10 +116,10 @@ const AppointsCard = () => {
           <input
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
             type="text"
-            {...register("name", { required: true })}
+            {...register("client_name", { required: true })}
             placeholder="Tu Nombre"
           />
-          {errors.name && (
+          {errors.client_name && (
             <span className="text-red-500">Este campo es obligatorio</span>
           )}
         </div>
@@ -122,10 +128,10 @@ const AppointsCard = () => {
           <input
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
             type="email"
-            {...register("email", { required: true })}
+            {...register("client_email", { required: true })}
             placeholder="Tu Correo electrónico"
           />
-          {errors.email && (
+          {errors.client_email && (
             <span className="text-red-500">Este campo es obligatorio</span>
           )}
         </div>
@@ -137,10 +143,10 @@ const AppointsCard = () => {
             <input
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
               type="date"
-              {...register("b_date", { required: true })}
+              {...register("client_birthday", { required: true })}
               title="Por favor, ingresa tu fecha de cumpleaños"
             />
-            {errors.b_date && (
+            {errors.client_birthday && (
               <span className="text-red-500">Este campo es obligatorio</span>
             )}
           </div>
@@ -149,10 +155,10 @@ const AppointsCard = () => {
             <input
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
               type="tel"
-              {...register("num_tel", { required: true })}
+              {...register("client_phone", { required: true })}
               placeholder="Tu número de teléfono"
             />
-            {errors.num_tel && (
+            {errors.client_phone && (
               <span className="text-red-500">Este campo es obligatorio</span>
             )}
           </div>
@@ -160,13 +166,13 @@ const AppointsCard = () => {
           <div className="mb-2">
             <select
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-              {...register("branch", { required: true })}
+              {...register("branch_id", { required: true })}
             >
               <option value="">Selecciona una sucursal</option>
-              <option value="branch1">San Benito</option>
-              <option value="branch2">Santa Elena</option>
+              <option value="1">San Benito</option>
+              <option value="2">Santa Elena</option>
             </select>
-            {errors.branch && (
+            {errors.branch_id && (
               <span className="text-red-500">Este campo es obligatorio</span>
             )}
           </div>
@@ -174,17 +180,17 @@ const AppointsCard = () => {
           <div className="mb-2">
             <select
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-              {...register("barber", { required: true })}
+              {...register("barber_id", { required: true })}
             >
               <option value="">Selecciona un estilista</option>
-              <option value="barber1">El Rockero</option>
-              <option value="barber2">El Pirata</option>
-              <option value="barber3">La Sirena</option>
-              <option value="barber4">El Mago</option>
-              <option value="barber5">El Jefe</option>
-              <option value="barber6">El Artista</option>
+              <option value="1">El Rockero</option>
+              <option value="2">El Pirata</option>
+              <option value="3">La Sirena</option>
+              <option value="4">El Mago</option>
+              <option value="5">El Jefe</option>
+              <option value="6">El Artista</option>
             </select>
-            {errors.barber && (
+            {errors.barber_id && (
               <span className="text-red-500">Este campo es obligatorio</span>
             )}
           </div>
@@ -192,17 +198,17 @@ const AppointsCard = () => {
           <div className="mb-2">
             <select
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-              {...register("drink", { required: true })}
+              {...register("drink_id", { required: true })}
             >
               <option value="">Selecciona tu Bebida</option>
-              <option value="drink1">Agua</option>
-              <option value="drink2">Soda</option>
-              <option value="drink3">Café</option>
-              <option value="drink4">Té</option>
-              <option value="drink1">Cerveza</option>
-              <option value="drink2">Whisky</option>
+              <option value="1">Agua</option>
+              <option value="2">Soda</option>
+              <option value="3">Café</option>
+              <option value="4">Té</option>
+              <option value="5">Cerveza</option>
+              <option value="6">Whisky</option>
             </select>
-            {errors.drink && (
+            {errors.drink_id && (
               <span className="text-red-500">Este campo es obligatorio</span>
             )}
           </div>
@@ -210,17 +216,17 @@ const AppointsCard = () => {
           <div className="mb-2">
             <select
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-              {...register("music", { required: true })}
+              {...register("music_id", { required: true })}
             >
               <option value="">Selecciona el género musical</option>
-              <option value="music1">Salsa</option>
-              <option value="music2">Reggae</option>
-              <option value="music3">Pop</option>
-              <option value="music4">Rock</option>
-              <option value="music5">Reggaetón</option>
-              <option value="music6">Ambiental</option>
+              <option value="1">Salsa</option>
+              <option value="2">Reggae</option>
+              <option value="3">Pop</option>
+              <option value="4">Rock</option>
+              <option value="5">Reggaetón</option>
+              <option value="6">Ambiental</option>
             </select>
-            {errors.music && (
+            {errors.music_id && (
               <span className="text-red-500">Este campo es obligatorio</span>
             )}
           </div>
@@ -235,12 +241,11 @@ const AppointsCard = () => {
           <DatePicker
             selected={selectedDate}
             onChange={handleDateChange}
-            minDate={new Date()} // Establece la fecha mínima para seleccionar
+            minDate={new Date()}
             dateFormat="yyyy-MM-dd"
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300 shadow-sm"
-            calendarClassName="bg-white text-gray-800 rounded-lg shadow-md" // Personaliza el calendario
-            wrapperClassName="w-full" // Personaliza el contenedor del calendario
-            // Agrega más personalización según tus necesidades
+            calendarClassName="bg-white text-gray-800 rounded-lg shadow-md"
+            wrapperClassName="w-full"
           />
           {errors.selectedDate && (
             <span className="text-red-500">Este campo es obligatorio</span>
@@ -278,7 +283,7 @@ const AppointsCard = () => {
           <label className="inline-flex items-center">
             <input
               type="checkbox"
-              {...register("services", { required: true })}
+              {...register("service_id", { required: true })} value="1"
               className="form-checkbox h-5 w-5 text-blue-600"
             />
             <span className="ml-2 text-yellow-100">Corte con estilo</span>
@@ -286,7 +291,7 @@ const AppointsCard = () => {
           <label className="inline-flex items-center">
             <input
               type="checkbox"
-              {...register("services")}
+              {...register("service_id")} value="4"
               className="form-checkbox h-5 w-5 text-blue-600"
             />
             <span className="ml-2 text-yellow-100">Afeitado</span>
@@ -294,7 +299,7 @@ const AppointsCard = () => {
           <label className="inline-flex items-center">
             <input
               type="checkbox"
-              {...register("services")}
+              {...register("service_id")} value="2"
               className="form-checkbox h-5 w-5 text-blue-600"
             />
             <span className="ml-2 text-yellow-100">Corte para Niño</span>
@@ -302,7 +307,7 @@ const AppointsCard = () => {
           <label className="inline-flex items-center">
             <input
               type="checkbox"
-              {...register("services")}
+              {...register("service_id")} value="5"
               className="form-checkbox h-5 w-5 text-blue-600"
             />
             <span className="ml-2 text-yellow-100">Estilo de Barba</span>
@@ -310,7 +315,7 @@ const AppointsCard = () => {
           <label className="inline-flex items-center">
             <input
               type="checkbox"
-              {...register("services")}
+              {...register("service_id")} value="3"
               className="form-checkbox h-5 w-5 text-blue-600"
             />
             <span className="ml-2 text-yellow-100">Afeitado con Estilo</span>
@@ -318,13 +323,13 @@ const AppointsCard = () => {
           <label className="inline-flex items-center">
             <input
               type="checkbox"
-              {...register("services")}
+              {...register("service_id")} value="6"
               className="form-checkbox h-5 w-5 text-blue-600"
             />
             <span className="ml-2 text-yellow-100">Tratamiento de Cabello</span>
           </label>
         </div>
-        {errors.services && (
+        {errors.service_id && (
           <span className="text-red-500">Selecciona al menos un servicio</span>
         )}
       </div>
