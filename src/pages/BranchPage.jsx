@@ -8,7 +8,7 @@ function BranchPage() {
         <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 p-4">
           <BranchCard
             imagenSrc="/Barber-branch-1.png"
-            direccion="Boulevard del Hipodromo #1204, Col. San Benito, San Salvador, El salvador."
+            direccion="SUCURSAL SAN BENITO | Boulevard del Hipodromo #1204, Col. San Benito, San Salvador, El salvador."
             horarios="Lunes a Sabado de 08:00 a.m. a 06:00 p.m., sin cerrar al mediodía."
             telefono="(503) 2522-9999"
            
@@ -17,7 +17,7 @@ function BranchPage() {
         <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 p-4">
           <BranchCard
             imagenSrc="/Barber-branch-2.png"
-            direccion="Boulevard Santa Elena Local #12, Plaza Madero, Antiguo Cuscatlan, La Libertad, El Salvador."
+            direccion="SUCURSAL SANTA ELENA | Boulevard Santa Elena Local #12, Plaza Madero, Antiguo Cuscatlan, La Libertad, El Salvador."
             horarios="Lunes a Sabado de 08:00 a.m. a 06:00 p.m., sin cerrar al mediodía."
             telefono="(503) 2522-5055"
           

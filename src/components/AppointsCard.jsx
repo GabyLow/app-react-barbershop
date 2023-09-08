@@ -17,6 +17,7 @@ const AppointsCard = () => {
 
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
+  const [servicesData, setServicesData] = useState([]);
   const [availableTimes, setAvailableTimes] = useState([]);
   const [branches, setBranches] = useState([]);
   const [barbers, setBarbers] = useState([]);
@@ -57,11 +58,11 @@ const AppointsCard = () => {
   const fetchOptionsFromApi = async () => {
     try {
       // Realiza solicitudes a la API para obtener las opciones
-      const branchesResponse = await fetch(`${apiUrl}/branches`);
-      const barbersResponse = await fetch(`${apiUrl}/barbers`);
-      const servicesResponse = await fetch(`${apiUrl}/services`);
-      const drinksResponse = await fetch(`${apiUrl}/drinks`);
-      const musicResponse = await fetch(`${apiUrl}/music`);
+      const branchesResponse = await fetch(`http://localhost:8000/api/branches`);
+      const barbersResponse = await fetch(`http://localhost:8000/api/barbers`);
+      const servicesResponse = await fetch(`http://localhost:8000/api/services`);
+      const drinksResponse = await fetch(`http://localhost:8000/api/drinks`);
+      const musicResponse = await fetch(`http://localhost:8000/api/music`);
 
       // Convierte las respuestas en datos JSON
       const branchesData = await branchesResponse.json();
@@ -73,7 +74,7 @@ const AppointsCard = () => {
       // Actualiza el estado con las opciones obtenidas
       setBranches(branchesData);
       setBarbers(barbersData);
-      setServices(servicesData);
+      setServicesData(servicesData);
       setDrinks(drinksData);
       setMusic(musicData);
     } catch (error) {
@@ -93,7 +94,7 @@ const AppointsCard = () => {
           Programa una cita
         </h2>
       </div>
-
+      
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="mb-4">
