@@ -6,7 +6,7 @@ const AppointsPage = () => {
     <div>
       {/* Otros elementos de la página */}
       <AppointsCard />
-      <section className="py-8">
+      <section className="py-12">
         <div className="container mx-auto text-center">
           <h2 className="text-6xl font-bold text-orange-200 font-mate-sc mb-4">Nuestros Talentosos Barberos</h2>
           <div className="mx-auto max-w-2xl">
