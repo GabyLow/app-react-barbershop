@@ -4,37 +4,37 @@ function ServiceList() {
   const servicesData = [
     {
       title: 'Corte de Cabello',
-      duration: '1 Hora',
+      duration: '60 minutos',
       description: 'Un corte moderno y a la moda.',
       price: '20',
     },
     {
       title: 'Afeitado',
-      duration: '30 minutos',
+      duration: '60 minutos',
       description: 'Afeitado profesional completo.',
       price: '15',
     },
     {
       title: 'Corte para Niño',
-      duration: '30 minutos',
+      duration: '60 minutos',
       description: 'Corte infantil a la moda.',
       price: '15',
     },
     {
       title: 'Estilo de Barba',
-      duration: '1 Hora',
+      duration: '60 minutos',
       description: 'Corte profesional con estilo.',
       price: '20',
     },
     {
       title: 'Afeitado con estilo',
-      duration: '30 minutos',
+      duration: '60 minutos',
       description: 'Estilo con cuchillas de precisión.',
       price: '20',
     },
     {
       title: 'Tratamiento de Cabello',
-      duration: '1 Hora',
+      duration: '60 minutos',
       description: 'Nutrición para cabello saludable.',
       price: '20',
     },
